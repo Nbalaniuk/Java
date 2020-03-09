@@ -1,0 +1,152 @@
+Int = 4 bytes
+short = 2 bytes
+Char =  2 bytes
+utf-8 = 1byte, +2 for string
+float = 4 bytes
+double = 8 bytes
+
+
+Which of the following statements are true?
+ A. A File object encapsulates the properties of a file or a path, but does not contain the methods for reading/writing.
+ B. You can use the PrintWriter class for outputting text to a file.
+ C. You can use the Scanner class for reading text from a file.
+ D. An input object is also called an input stream.
+ E. An output object is also called an output stream
+ 
+ 
+ Which method can you use to find out the number of the bytes in a file using InputStream?
+ 
+ B. available()
+ 
+ 
+ 
+ Which of the following statements are true?
+ A. All methods in FileInputStream/FileOutputStream are inherited from InputStream/OutputStream.
+ B. You can create a FileInputStream/FileOutputStream from a File object or a file name using FileInputStream/FileOutputStream constructors.
+ C. The return value -1 from the read() method signifies the end of file.
+ D. A java.io.FileNotFoundException would occur if you attempt to create a FileInputStream with a nonexistent file.
+ 
+ 
+ 
+ To append data to an existing file, use _____________ to construct a FileOutputStream for file out.dat.
+ 
+ C. new FileOutputStream("out.dat", true)
+ 
+ Which of the following statements is correct to create a DataOutputStream to write to a file named out.dat?
+
+ B. DataOutputStream outfile = new DataOutputStream(new FileOutputStream("out.dat"));
+ 
+ 
+ 
+ After the following program is finished, how many bytes are written to the file t.dat?
+
+import java.io.*;
+
+public class Test {
+  public static void main(String[] args) throws IOException {
+    DataOutputStream output = new DataOutputStream(
+      new FileOutputStream("t.dat"));
+    output.writeShort(1234);
+    output.writeShort(5678);
+    output.close();
+  }
+}
+ 
+ B. 4 bytes.
+ 
+ 
+ 
+ 
+  After the following program is finished, how many bytes are written to the file t.dat?
+
+import java.io.*;
+
+public class Test {
+  public static void main(String[] args) throws IOException {
+    DataOutputStream output = new DataOutputStream(
+      new FileOutputStream("t.dat"));
+    output.writeChar('A');
+    output.close();
+  }
+}
+ A. 2 bytes.
+ 
+ 
+ import java.io.*;
+
+public class Test {
+  public static void main(String[] args) throws IOException {
+    DataOutputStream output = new DataOutputStream(
+      new FileOutputStream("t.dat"));
+    output.writeUTFString("ABCD");
+    output.close();
+  }
+}
+ 'ABCD' are ASCII code, so each takes one byte in UTF. Total is 6 because the first two bytes stores the number of characters in the string.
+ C. 6 bytes.
+ 
+ 
+ Which of the following statements are true?
+ A. All files are stored in binary format. So, all files are essentially binary files.
+ B. Text I/O is built upon binary I/O to provide a level of abstraction for character encoding and decoding. 
+ C. Encoding and decoding are automatically performed by text I/O. 
+ D. For binary input, you need to know exactly how data were written in order to read them in correct type and order. 
+ 
+ 
+ 
+ Which of the following statements are true?
+ A. ObjectInputStream/ObjectOutputStream enables you to perform I/O for objects in addition for primitive type values and strings.
+ B. Since ObjectInputStream/ObjectOutputStream contains all the functions of DataInputStream/DataOutputStream, you can replace DataInputStream/DataOutputStream completely by ObjectInputStream/ObjectOutputStream. 
+ C. To write an object, the object must be serializable.
+ D. The Serializable interface does not contain any methods. So it is a mark interface.
+ E. If all the elements in an array is serializable, the array is serializable too.
+ 
+ 
+ The Loan class given in the text does not implement java.io.Serializable. Analyze the following code.
+
+public class Foo implements java.io.Serializable {  
+  private int v1;
+  private static double v2;
+  private Loan v3 = new Loan();
+}
+ 
+ B. An instance of Foo cannot be serialized because Foo contains a non-serializable instance variable v3.
+ C. If you mark v3 as transient, an instance of Foo is serializable.
+ 
+ 
+ Which of the following statements is true?
+ 
+ C. An object must be an instance of Serializable for it to be serialized.
+ 
+ 
+ To create a file, you can use __________.
+ A. FileOutputStream
+ B. FileWriter
+ C. RandomAccessFile
+ D. All of the above
+ 
+ 
+ 
+ With which I/O class can you append or update a file?
+ A. RandomAccessFile()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
